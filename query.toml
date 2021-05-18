@@ -1,0 +1,10 @@
+copy_mode = true
+
+[[config]]
+    front = "https://www.google.com/search?q="
+    keys = "LAlt+Key1"
+
+[[config]]
+    front = "https://www.bing.com/search?q="
+    back = "%20sauce"
+    keys = "LAlt+Key2"
