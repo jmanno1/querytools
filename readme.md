@@ -34,8 +34,9 @@ At the top level, The following options are available:
 - `copy_mode` - Optional, bool value, indicates if you want the program to copy highlighted text prior to doing the web query.
 
 The following fields are avaiable for the `[[config]]` table:
+
 - `front` - Required, this is the website URL that is the base of the query.
-- `keys` - Required, these are the keys that trigger the web query.Use `+` as a delimiter between keys.
+- `keys` - Required, these are the keys that trigger the web query. Use `+` as a delimiter between keys.
 - `back` - Optional, this is content to be added at the end of the URL.
 
 ### Valid keynames
