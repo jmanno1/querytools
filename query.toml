@@ -8,3 +8,4 @@ copy_mode = true
     front = "https://www.bing.com/search?q="
     back = "%20sauce"
     keys = "LAlt+Key2"
+    copy_mode = true
