@@ -5,7 +5,8 @@ use std::env;
 use webbrowser;
 use device_query::{DeviceQuery, DeviceState, Keycode};
 use std::{thread, time};
-use clipboard_win::{formats, get_clipboard};
+use clipboard::ClipboardProvider;
+use clipboard::ClipboardContext;
 use enigo::*;
 
 struct KeyEvent {
@@ -44,6 +45,7 @@ fn listen_for_events(key_events: &Vec<KeyEvent>, config: &Config) {
     let mut enigo = Enigo::new();
     let device_state = DeviceState::new();
     let ten_millis = time::Duration::from_millis(10);
+    let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
 
     loop {
         let keys: Vec<Keycode> = device_state.get_keys();
@@ -70,10 +72,16 @@ fn listen_for_events(key_events: &Vec<KeyEvent>, config: &Config) {
                     }
 
                     let mut query = event.front.clone();
-                    let content: String = get_clipboard(formats::Unicode).expect("To get clipboard");
+                    let content: String = ctx.get_contents().unwrap_or("".to_string());
+
                     query.push_str(&content);
                     if let Some(m) = &event.back {
                         query.push_str(m);
+                    }
+
+                    if query.len() > 2000 {
+                        println!("URL length exceeds 2000 characters, aboritng query");
+                        continue; 
                     }
 
                     if webbrowser::open(&query).is_ok() {

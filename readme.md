@@ -2,6 +2,12 @@
 
 Simple tool to query websites using clipboard content and your keyboard!
 
+To use on Linux, please install the x11 Library. Example install command for Debian systems:
+
+```
+sudo apt-get install xorg-dev
+```
+
 This program creates a custom URL using  the provide `front`,  then your clipboard content, and
 will add the `back` content if provided.
 
