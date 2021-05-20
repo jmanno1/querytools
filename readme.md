@@ -12,7 +12,7 @@ The config file can be made up of multiple config table entries.
 Example:
 
 ```
-copy_mode = true
+copy_mode = false # Optional global setting
 
 [[config]]
     front = "https://www.google.com/search?q="
@@ -22,6 +22,7 @@ copy_mode = true
     front = "https://www.bing.com/search?q="
     back = "%20sauce"
     keys = "LAlt+Key2"
+    copy_mode = true
 ```
 
 If my clipboard contained the word `taco`, by pressing `left alt+1` it would do a google query for "taco".
@@ -38,6 +39,7 @@ The following fields are avaiable for the `[[config]]` table:
 - `front` - Required, this is the website URL that is the base of the query.
 - `keys` - Required, these are the keys that trigger the web query. Use `+` as a delimiter between keys.
 - `back` - Optional, this is content to be added at the end of the URL.
+- `copy_mode` - Optional bool, this sets this config to copy highlighted text prior to performing query
 
 ### Valid keynames
 

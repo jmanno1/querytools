@@ -1,4 +1,4 @@
-copy_mode = true
+copy_mode = false # Optional global setting
 
 [[config]]
     front = "https://www.google.com/search?q="
